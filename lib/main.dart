@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ui_fyp/provider/splash_provider.dart';
 import 'package:ui_fyp/screens/splash/splash_screen.dart';
 
 void main() {
@@ -11,16 +13,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_)=> SplashProvider())
+      
+    ],
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Flutter Fyp ',
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home:SplashScreen(),
-    );
+    ),);
   }
 }
 
