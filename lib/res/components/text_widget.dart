@@ -10,6 +10,7 @@ class TextWidget extends StatelessWidget {
   FontWeight fontWeight;
 
 
+
    TextWidget({super.key,required this.text,required this.fontWeight,required this.size,required this.color,});
 
   @override

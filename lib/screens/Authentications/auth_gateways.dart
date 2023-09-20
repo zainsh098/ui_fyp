@@ -93,6 +93,9 @@ class _AuthGateWaysState extends State<AuthGateWays> {
                 fontWeight: FontWeight.w600,
                 size: 15,
                 color: Colors.grey),
+            SizedBox(
+              height: 20,
+            ),
             ContainerWidgetExtended(
               text: 'Signin with Password',
               size: 14,
@@ -116,6 +119,8 @@ class _AuthGateWaysState extends State<AuthGateWays> {
                   width: 5,
                 ),
                 TextWidget(
+
+
                     text: "Sign up",
                     fontWeight: FontWeight.w500,
                     size: 12,
