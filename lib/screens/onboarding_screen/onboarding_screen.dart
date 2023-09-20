@@ -56,12 +56,13 @@ class OnboradingScreen extends StatelessWidget {
           ),
         );
       },
-      hasFloatingButton: true,
-      indicatorPosition: 100,
+
+
       controllerColor: Colors.orange,
       totalPage: 4,
       headerBackgroundColor: Colors.white,
       pageBackgroundColor: Colors.white,
+
       background: [
 
         Padding(
