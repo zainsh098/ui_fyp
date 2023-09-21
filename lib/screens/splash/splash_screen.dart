@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     // Delay the animation of showing "scaney" by 4 seconds (adjust as needed)
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       setState(() {
         showScaney = true;
 
@@ -30,15 +30,15 @@ class _SplashScreenState extends State<SplashScreen> {
       });
     });
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         showCaption= true;
       });
     });
-    Future.delayed(Duration(seconds: 7), () {
+    Future.delayed(const Duration(seconds: 7), () {
       setState(() {
 
-        Navigator.push(context, MaterialPageRoute(builder: (context) => OnboradingScreen(),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const OnboradingScreen(),));
 
       });
     });
@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 30),
                     child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                      duration: const Duration(seconds: 1),
                       curve: Curves.easeOut,
                       transform: Matrix4.translationValues(0, showScaney ? -height * 0.15 : 0, 0),
                       child: SizedBox(
@@ -78,19 +78,19 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
                 AnimatedOpacity(
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   opacity: showScaney ? 1.0 : 0.0,
                   child: Center(
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(bottom: 50), // Add padding above "scaney.z"
+                          padding: const EdgeInsets.only(bottom: 50), // Add padding above "scaney.z"
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               AnimatedTextKit(
                                 isRepeatingAnimation: false,
-                                pause: Duration(milliseconds: 600),
+                                pause: const Duration(milliseconds: 600),
                                 animatedTexts: [
                                   WavyAnimatedText(
                                     'scaney',
@@ -99,14 +99,14 @@ class _SplashScreenState extends State<SplashScreen> {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 40,
                                     ),
-                                    speed: Duration(milliseconds: 900),
+                                    speed: const Duration(milliseconds: 900),
                                   ),
                                 ],
                               ),
-                              SizedBox(width: 3,),
+                              const SizedBox(width: 3,),
                               AnimatedTextKit(
                                 isRepeatingAnimation: false,
-                                pause: Duration(milliseconds: 600),
+                                pause: const Duration(milliseconds: 600),
                                 animatedTexts: [
                                   WavyAnimatedText(
                                     '.Z',
@@ -116,7 +116,7 @@ class _SplashScreenState extends State<SplashScreen> {
                                       color: Colors.blue,
                                       fontSize: 50,
                                     ),
-                                    speed: Duration(milliseconds: 2800),
+                                    speed: const Duration(milliseconds: 2800),
                                   ),
                                 ],
                               ),
@@ -127,7 +127,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
               ],
             ),
 
@@ -149,7 +149,7 @@ class _SplashScreenState extends State<SplashScreen> {
                             fontWeight: FontWeight.w500,
                             fontSize: 12,
                           ),
-                          speed: Duration(milliseconds: 100),
+                          speed: const Duration(milliseconds: 100),
                         ),
                       ],
                     ),

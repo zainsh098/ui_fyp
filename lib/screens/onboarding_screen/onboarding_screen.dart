@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ui_fyp/screens/Authentications/auth_gateways.dart';
 import 'package:ui_fyp/screens/splash/splash_screen.dart';
 
 class OnboradingScreen extends StatelessWidget {
@@ -13,20 +14,22 @@ class OnboradingScreen extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return OnBoardingSlider(
       finishButtonText: 'Register',
+      addButton: true,
+
       onFinish: () {
         Navigator.push(
           context,
           CupertinoPageRoute(
-            builder: (context) => const SplashScreen(),
+            builder: (context) => const AuthGateWays(),
           ),
         );
       },
-      finishButtonStyle: FinishButtonStyle(
+      finishButtonStyle: const FinishButtonStyle(
         backgroundColor: Colors.blue,
       ),
 
-      skipTextButton: Padding(
-        padding: const EdgeInsets.only(top: 10),
+      skipTextButton: const Padding(
+        padding: EdgeInsets.only(top: 10),
         child: Text(
           'Skip',
           style: TextStyle(
@@ -37,8 +40,8 @@ class OnboradingScreen extends StatelessWidget {
         ),
       ),
 
-      trailing: Padding(
-        padding: const EdgeInsets.only(top: 10),
+      trailing: const Padding(
+        padding: EdgeInsets.only(top: 10),
         child: Text(
           'Login',
           style: TextStyle(

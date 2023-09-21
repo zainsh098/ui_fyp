@@ -21,7 +21,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Center(
@@ -30,12 +30,12 @@ class _AuthGateWaysState extends State<AuthGateWays> {
                 child: SvgPicture.asset(
                   'assets/authwelcome.svg',
                   height: height * .25,
-                  theme: SvgTheme(currentColor: Colors.blue),
+                  theme: const SvgTheme(currentColor: Colors.blue),
                   width: width * .40,
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             TextWidget(
@@ -43,7 +43,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
                 fontWeight: FontWeight.bold,
                 size: 30,
                 color: Colors.black),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             ContainerWidget(
@@ -57,7 +57,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               logoheight: 25,
               logowidth: 50,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ContainerWidget(
@@ -71,7 +71,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               logoheight: 25,
               logowidth: 50,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ContainerWidget(
@@ -85,7 +85,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               logoheight: 25,
               logowidth: 50,
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             TextWidget(
@@ -93,7 +93,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
                 fontWeight: FontWeight.w600,
                 size: 15,
                 color: Colors.grey),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ContainerWidgetExtended(
@@ -104,7 +104,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               color1: Colors.white,
               callback: () {},
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Row(
@@ -115,7 +115,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
                     fontWeight: FontWeight.w500,
                     size: 12,
                     color: Colors.black),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 TextWidget(

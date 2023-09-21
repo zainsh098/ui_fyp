@@ -35,7 +35,7 @@ class ContainerWidget extends StatelessWidget {
                 ),
 
               ),
-              backgroundColor:MaterialStatePropertyAll<Color>(Colors.white),
+              backgroundColor:const MaterialStatePropertyAll<Color>(Colors.white),
               minimumSize:MaterialStatePropertyAll(Size(width*.80,height*.07 ))),
 
 
@@ -47,7 +47,7 @@ class ContainerWidget extends StatelessWidget {
 
         children: [
           Image.asset(image,height: logoheight  ,width:logowidth,),
-          SizedBox(width: 2,),
+          const SizedBox(width: 2,),
           Text(text,style: GoogleFonts.poppins(color: color1,
             fontWeight: fontWeight,fontSize: size,
 
