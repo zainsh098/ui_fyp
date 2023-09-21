@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String textmessage;
-  bool _isLoading=false;
-  VoidCallback onTap;
-  ButtonWidget({required this.textmessage, required this.onTap, super.key});
+  final bool _isLoading=false;
+  final VoidCallback onTap;
+  const ButtonWidget({required this.textmessage, required this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) {

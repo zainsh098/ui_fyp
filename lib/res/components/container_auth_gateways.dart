@@ -5,17 +5,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 class ContainerWidget extends StatelessWidget {
-  String text;
-  double size;
-  Color color;
-  Color color1;
-  String image;
-  double logoheight;
-  double logowidth;
-  VoidCallback callback;
+  final String text;
+  final double size;
+  final Color color;
+  final Color color1;
+  final String image;
+  final double logoheight;
+ final  double logowidth;
+  final VoidCallback callback;
 
 
-  FontWeight fontWeight;
+  final FontWeight fontWeight;
 
   ContainerWidget({super.key,required this.text,required this.size,required this.color,required this.fontWeight,required this.image,required this.color1,required this.logowidth,required this.logoheight,required this.callback});
 
@@ -60,18 +60,23 @@ class ContainerWidget extends StatelessWidget {
 }
 
 
-class ContainerWidgetExtended extends StatelessWidget {
-
-  String text;
-  double size;
-  Color color;
-  Color color1;
-  final VoidCallback callback;
 
 
-  FontWeight fontWeight;
+class ContainerWidgetExtended extends StatefulWidget {
 
-  ContainerWidgetExtended({super.key,required this.text,required this.size,required this.color,required this.fontWeight,required this.color1,required this.callback});
+ final  String text;
+ final double size;
+ final Color color;
+ final Color color1;
+ final VoidCallback callback;
+ final FontWeight fontWeight;
+  const ContainerWidgetExtended({super.key,required this.text,required this.size,required this.color,required this.fontWeight,required this.color1,required this.callback});
+
+  @override
+  State<ContainerWidgetExtended> createState() => _ContainerWidgetExtendedState();
+}
+
+class _ContainerWidgetExtendedState extends State<ContainerWidgetExtended> {
 
 
 
@@ -92,12 +97,13 @@ class ContainerWidgetExtended extends StatelessWidget {
                 ),
 
               ),
-              backgroundColor:MaterialStatePropertyAll<Color>(color),
-              minimumSize:MaterialStatePropertyAll(Size(width*.80,height*.07 ))),
+    backgroundColor: MaterialStateProperty.all<Color>(widget.color),
+    minimumSize: MaterialStateProperty.all(Size(width * 0.80, height * 0.07))),
 
 
-          onPressed: () {
-            callback;
+
+    onPressed: () {
+            widget.callback();
 
           }, child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -105,8 +111,8 @@ class ContainerWidgetExtended extends StatelessWidget {
         children: [
 
 
-          Text(text,style: GoogleFonts.poppins(color: color1,
-            fontWeight: fontWeight,fontSize: size,
+          Text(widget.text,style: GoogleFonts.poppins(color: widget.color1,
+            fontWeight: widget.fontWeight,fontSize: widget.size,
 
           ),),
 
@@ -115,3 +121,9 @@ class ContainerWidgetExtended extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
