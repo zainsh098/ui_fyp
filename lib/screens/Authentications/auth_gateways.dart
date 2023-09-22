@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:ui_fyp/res/components/container_auth_gateways.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
+import 'package:ui_fyp/screens/Authentications/create_account.dart';
 
 class AuthGateWays extends StatefulWidget {
   const AuthGateWays({super.key});
@@ -118,13 +119,18 @@ class _AuthGateWaysState extends State<AuthGateWays> {
                 const SizedBox(
                   width: 5,
                 ),
-                TextWidget(
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount(),));
+                  },
+                  child: TextWidget(
 
 
-                    text: "Sign up",
-                    fontWeight: FontWeight.w500,
-                    size: 12,
-                    color: Colors.blue),
+                      text: "Sign up",
+                      fontWeight: FontWeight.w500,
+                      size: 12,
+                      color: Colors.blue),
+                ),
               ],
             ),
           ],

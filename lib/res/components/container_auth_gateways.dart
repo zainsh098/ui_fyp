@@ -125,5 +125,62 @@ class _ContainerWidgetExtendedState extends State<ContainerWidgetExtended> {
 
 
 
+class LoginPageContainer extends StatelessWidget {
+
+  final Color color;
+
+  final String image;
+  final double logoheight;
+  final double logowidth;
+  final VoidCallback callback;
+
+
+  const LoginPageContainer(
+      {super.key, required this.image, required this.color, required this.callback, required this.logowidth, required this.logoheight});
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery
+        .of(context)
+        .size
+        .height;
+    final width = MediaQuery
+        .of(context)
+        .size
+        .width;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: ElevatedButton(
+
+          style: ButtonStyle(
+              shape: MaterialStateProperty.all<OutlinedBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                  // Adjust the radius as needed
+                  side: BorderSide(color: Colors.blue.shade50), // Border color
+                ),
+
+              ),
+              backgroundColor: const MaterialStatePropertyAll<Color>(
+                  Colors.white),
+              minimumSize: MaterialStatePropertyAll(
+                  Size(width * .22, height * .07))),
+
+
+          onPressed: () {
+            callback;
+          }, child: Row(
+
+
+        children: [
+          Image.asset(image, height: logoheight, width: logowidth,),
+
+
+        ],
+      )),
+
+    );
+  }
+}
 
 

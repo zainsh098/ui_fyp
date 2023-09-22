@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_fyp/provider/splash_provider.dart';
-import 'package:ui_fyp/screens/Authentications/auth_gateways.dart';
-import 'package:ui_fyp/screens/Authentications/create_account.dart';
-import 'package:ui_fyp/screens/onboarding_screen/onboarding_screen.dart';
 
-import 'package:ui_fyp/screens/splash/splash_screen.dart';
+import 'package:ui_fyp/screens/Home%20Screen/home_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home:const CreateAccount(),
+      home:const HomeScreen(),
     ),);
   }
 }

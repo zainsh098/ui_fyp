@@ -70,7 +70,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 fontWeight: FontWeight.w400,
                 color1: Colors.white,
                 callback: () {
-                  print('Showing AlertDialog');
+
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
