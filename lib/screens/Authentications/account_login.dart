@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:ui_fyp/screens/splash/splash_screen.dart';
+import 'package:ui_fyp/screens/Home%20Screen/home_screen.dart';
+
 
 import '../../res/components/container_auth_gateways.dart';
 import '../../res/components/remeberme_checkbox.dart';
@@ -116,7 +117,7 @@ class AccountLogin extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 color1: Colors.white,
                 callback: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreen(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
 
                 },
               )

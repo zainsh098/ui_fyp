@@ -184,3 +184,42 @@ class LoginPageContainer extends StatelessWidget {
 }
 
 
+
+class HomeScreenContainer extends StatelessWidget {
+
+
+
+ final Color color;
+
+  final String image;
+  final double logoheight;
+  final double logowidth;
+
+
+
+  const HomeScreenContainer({super.key,required this.image,required this.color,required this.logoheight,required this.logowidth});
+
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    return Container(
+      height: height * 0.07,
+      width: width * 0.20,
+      decoration: BoxDecoration(shape: BoxShape.circle,
+
+        color: color,
+
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(image, height: logoheight, width: logowidth),
+        ],
+      ),
+    );
+
+  }
+}
+

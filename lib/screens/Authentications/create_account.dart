@@ -3,8 +3,8 @@ import 'package:ui_fyp/res/components/container_auth_gateways.dart';
 import 'package:ui_fyp/res/components/remeberme_checkbox.dart';
 import 'package:ui_fyp/res/components/text_form_field.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
+import 'package:ui_fyp/screens/Authentications/account_login.dart';
 
-import '../../utils/utils.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -71,12 +71,14 @@ class _CreateAccountState extends State<CreateAccount> {
                 color1: Colors.white,
                 callback: () {
 
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return Utils.buildAlertDialog(context);
-                    },
-                  );
+                  // showDialog(
+                  //   context: context,
+                  //   builder: (BuildContext context) {
+                  //     return Utils.buildAlertDialog(context);
+                  //   },
+                  // );
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AccountLogin(),));
+
                 },
               )
 
