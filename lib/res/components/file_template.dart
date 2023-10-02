@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
 
 class FileTemplate extends StatelessWidget {
@@ -10,8 +11,8 @@ class FileTemplate extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Container(
-      height: height * 0.15,
-      width: width * 0.90,
+      height: Adaptive.h(15),
+      width: Adaptive.w(90),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(10),
@@ -56,8 +57,8 @@ class FileTemplate extends StatelessWidget {
           ),
           // Right Side: Share and Vertical Dots Icons
           Container(
-            width: width * 0.22,
-            height: height * .1,
+            width: Adaptive.w(20),
+            height: Adaptive.h(2),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(

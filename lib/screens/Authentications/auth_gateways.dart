@@ -103,7 +103,11 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               color: Colors.blue,
               fontWeight: FontWeight.w600,
               color1: Colors.white,
-              callback: () {},
+              callback: () {
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccount(),));
+
+              },
             ),
             const SizedBox(
               height: 30,

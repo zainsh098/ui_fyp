@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 
 class ContainerWidget extends StatelessWidget {
@@ -98,7 +99,7 @@ class _ContainerWidgetExtendedState extends State<ContainerWidgetExtended> {
 
               ),
     backgroundColor: MaterialStateProperty.all<Color>(widget.color),
-    minimumSize: MaterialStateProperty.all(Size(width * 0.80, height * 0.07))),
+    minimumSize: MaterialStateProperty.all(Size(Adaptive.w(80), Adaptive.h(10)))),
 
 
 
@@ -205,8 +206,8 @@ class HomeScreenContainer extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Container(
-      height: height * 0.07,
-      width: width * 0.20,
+      height: Adaptive.h(10),
+      width: Adaptive.w(80),
       decoration: BoxDecoration(shape: BoxShape.circle,
 
         color: color,

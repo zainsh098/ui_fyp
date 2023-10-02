@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:ui_fyp/res/font_styles.dart';
 import 'package:ui_fyp/screens/Authentications/auth_gateways.dart';
 import 'package:ui_fyp/screens/splash/splash_screen.dart';
 
@@ -71,8 +73,8 @@ class OnboradingScreen extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 20),
           child: SizedBox(
-            height: height * 0.32,
-            width: width * 0.92,
+            height: Adaptive.h(31),
+            width: Adaptive.w(90),
             child: Lottie.asset(
               'assets/file.json',
               reverse: true,
@@ -124,17 +126,13 @@ class OnboradingScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(
-                height: 400,
+             SizedBox(
+                height: Adaptive.h(30),
               ),
               Text(
                 'Scan All your documents \n quick and easily',
                 textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
+                style: TextStyle(fontSize: 20,fontFamily: FontStyles.CarosSoftExtraBold,)
               ),
               const SizedBox(
                 height: 20,
@@ -159,8 +157,8 @@ class OnboradingScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(
-                height: 480,
+              SizedBox(
+                height: Adaptive.h(30),
               ),
               Text(
                 'Object Character Recognition OCR',
@@ -195,8 +193,8 @@ class OnboradingScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
 
-              const SizedBox(
-                height: 480,
+               SizedBox(
+                height: Adaptive.h(30),
               ),
               Text(
                 'Keep Your docs ,IDs in hand',

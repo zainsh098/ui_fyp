@@ -24,14 +24,14 @@ mainAxisAlignment: MainAxisAlignment.end,
               onPressed: () {
                 // Add your action for the first FAB here
               },
-              child: Icon(Icons.ac_unit),
+              child: Icon(Icons.camera_alt),
             ),
             SizedBox(width: 16), // Add some spacing between FABs
             FloatingActionButton(
               onPressed: () {
                 // Add your action for the second FAB here
               },
-              child: Icon(Icons.access_alarm),
+              child: Icon(Icons.browse_gallery_outlined),
             ),
          // Add some spacing between FABs
 
