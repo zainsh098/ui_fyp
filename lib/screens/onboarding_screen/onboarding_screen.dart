@@ -40,9 +40,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     int? index,
   }) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       decoration:  BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(50),
         ),
         color: containerColors [index!],
@@ -77,12 +77,12 @@ Widget build(BuildContext context) {
                   padding: const EdgeInsets.all(30.0),
                   child: Column(
                     children: [
-                      SizedBox(height: 30,),
+                      const SizedBox(height: 30,),
                       Image.asset(
                         contents[i].image,
                         height: SizeConfig.blockV! * 30,
                       ),
-                      SizedBox(height: 60,),
+                      const SizedBox(height: 60,),
                       Text(
                         contents[i].title,
                         textAlign: TextAlign.center,
@@ -95,7 +95,7 @@ Widget build(BuildContext context) {
                       const SizedBox(height: 15),
                       Text(
                         contents[i].desc,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontFamily: FontStyles.CarosSoftLight,
 
                           fontSize: 18
@@ -115,7 +115,7 @@ Widget build(BuildContext context) {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
@@ -201,7 +201,7 @@ Widget build(BuildContext context) {
                             fontSize: (width <= 550) ? 13 : 17,
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           "NEXT",
                           style: TextStyle(
                             color: Colors.white,
