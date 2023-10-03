@@ -7,6 +7,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
 
 import '../../res/font_styles.dart';
+import '../onboarding_screen/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -35,13 +36,13 @@ class _SplashScreenState extends State<SplashScreen> {
         showCaption = true;
       });
     });
-    // Future.delayed(const Duration(seconds: 7), () {
-    //   setState(() {
-    //
-    //     Navigator.push(context, MaterialPageRoute(builder: (context) => const OnboradingScreen(),));
-    //
-    //   });
-    // });
+    Future.delayed(const Duration(seconds: 7), () {
+      setState(() {
+
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const OnboardingScreen(),));
+
+      });
+    });
   }
 
   @override

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+
+import '../font_styles.dart';
 
 class TextFormWidget extends StatelessWidget {
 
@@ -22,16 +24,10 @@ class TextFormWidget extends StatelessWidget {
           labelText: label,
           hintText: hintText,
 
-          hintStyle: GoogleFonts.poppins(
-            color: Colors.grey,
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
-          ),
-          labelStyle: GoogleFonts.poppins(
-            color: Colors.black,
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
-          ),
+          hintStyle: TextStyle(fontFamily: FontStyles.CarosSoftBold,
+              fontSize:  15,color: Colors.black),
+          labelStyle: TextStyle(fontFamily: FontStyles.CarosSoftBold,
+              fontSize:  12,color: Colors.black),
           enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.blue, width: 2),
           ),
@@ -63,16 +59,10 @@ class TextFormWidget2 extends StatelessWidget {
             labelText: label,
             hintText: hintText,
 
-            hintStyle: GoogleFonts.poppins(
-              color: Colors.grey,
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-            ),
-            labelStyle: GoogleFonts.poppins(
-              color: Colors.black,
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
+            hintStyle: TextStyle(fontFamily: FontStyles.CarosSoftBold,
+            fontSize:  12,color: Colors.black),
+            labelStyle: TextStyle(fontFamily: FontStyles.CarosSoftBold,
+                fontSize:  12,color: Colors.black),
             enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.blue, width: 2),
             ),

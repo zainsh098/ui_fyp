@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+
+import '../font_styles.dart';
 
 
 class CheckBoxRememberMe extends StatefulWidget {
@@ -30,11 +32,7 @@ class _CheckBoxRememberMeState extends State<CheckBoxRememberMe> {
         ),
         Text(
           'Remember Me',
-          style: GoogleFonts.poppins(
-            color: Colors.black,
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
-          ),
+          style: TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 12)
         ),
       ],
     );

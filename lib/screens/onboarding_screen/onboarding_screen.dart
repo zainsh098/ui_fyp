@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_fyp/screens/Home%20Screen/home_screen.dart';
+import 'package:ui_fyp/screens/Authentications/auth_gateways.dart';
+
 
 
 
@@ -130,7 +131,7 @@ Widget build(BuildContext context) {
                   child: ElevatedButton(
                     onPressed: () {
 
-                      Navigator.push(context,  MaterialPageRoute(builder: (context) =>const HomeScreen(),));
+                      Navigator.push(context,  MaterialPageRoute(builder: (context) =>const AuthGateWays(),));
 
                     },
 

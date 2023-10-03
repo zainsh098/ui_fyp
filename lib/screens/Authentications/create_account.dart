@@ -5,6 +5,8 @@ import 'package:ui_fyp/res/components/text_form_field.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
 import 'package:ui_fyp/screens/Authentications/account_login.dart';
 
+import '../../res/font_styles.dart';
+
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -38,8 +40,7 @@ class _CreateAccountState extends State<CreateAccount> {
               Row(children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
-                  child: TextWidget(text: 'Create an account', fontWeight: FontWeight.w600,
-                      size: 23, color: Colors.black),
+                  child: TextWidget(text: 'Create an account', textStyle: TextStyle(fontFamily: FontStyles.CarosSoftExtraBold,fontSize: 28)),
                 ),
                 const SizedBox(width: 5,),
                 Image.asset('assets/padlock.png',height: 25,)
@@ -50,8 +51,7 @@ class _CreateAccountState extends State<CreateAccount> {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: TextWidget(
-                    text: 'Enter your name,email & password. If you forget it,\nthen you have to do forgot password', fontWeight: FontWeight.w500,
-                    size: 12, color: Colors.black),
+                    text: 'Enter your name,email & password. If you\nforget it then you have to do forgot password', textStyle: TextStyle(fontFamily: FontStyles.CarosSoft,fontSize: 14)),
               ),
               const SizedBox(height: 30,),
               const TextFormWidget(hintText: 'Email',label: 'Email',),
@@ -62,7 +62,7 @@ class _CreateAccountState extends State<CreateAccount> {
               const SizedBox(height: 10,),
              const CheckBoxRememberMe(),
 
-              const SizedBox(height: 180,),
+              const SizedBox(height: 150,),
               ContainerWidgetExtended(
                 text: 'Signup',
                 size: 18,

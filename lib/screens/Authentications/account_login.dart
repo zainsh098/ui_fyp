@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:ui_fyp/res/font_styles.dart';
 import 'package:ui_fyp/screens/Home%20Screen/home_screen.dart';
 
 
@@ -36,8 +37,7 @@ class AccountLogin extends StatelessWidget {
               Row(children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
-                  child: TextWidget(text: 'Hello There', fontWeight: FontWeight.w600,
-                      size: 30, color: Colors.black),
+                  child: TextWidget(text: 'Hello There', textStyle: TextStyle(fontFamily: FontStyles.CarosSoftExtraBold,fontSize: 30)),
                 ),
                 const SizedBox(width: 5,),
                 Image.asset('assets/hello.png',height: 30,)
@@ -48,8 +48,7 @@ class AccountLogin extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: TextWidget(
-                    text: 'Please enter your email & password to sign in', fontWeight: FontWeight.w500,
-                    size: 12, color: Colors.black),
+                    text: 'Please enter your email & password to sign in', textStyle: TextStyle(fontFamily: FontStyles.CarosSoft,fontSize: 14)),
               ),
               const SizedBox(height: 30,),
               const TextFormWidget(hintText: 'Email',label: 'Email',),
@@ -63,7 +62,7 @@ class AccountLogin extends StatelessWidget {
                 indent: 20,endIndent: 20,
 
               ),
-              SizedBox(height: 25,),
+              SizedBox(height: 10,),
               Center(
 
                 child: Column(
@@ -71,10 +70,10 @@ class AccountLogin extends StatelessWidget {
 
                   children: [
 
-                    TextWidget(text: 'Forgot Password', fontWeight: FontWeight.w600, size: 15, color: Colors.blue),
+                    TextWidget(text: 'Forgot Password', textStyle: TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 15,color: Colors.blue)),
                     SizedBox(height: 20,),
 
-                    TextWidget(text: 'or continue with', fontWeight: FontWeight.w500, size: 12, color: Colors.grey),
+                    TextWidget(text: 'or continue with', textStyle: TextStyle(fontFamily: FontStyles.CarosSoft,fontSize: 12)),
 
 
 
@@ -92,13 +91,13 @@ class AccountLogin extends StatelessWidget {
                   children: [
                     LoginPageContainer(image: 'assets/google.png', color: Colors.white, callback: () {
 
-                    }, logowidth: 22, logoheight: 22),
+                    }, logowidth: 24, logoheight: 24),
                     LoginPageContainer(image: 'assets/apple.png', color: Colors.white, callback: () {
 
-                    }, logowidth: 22, logoheight: 22),
+                    }, logowidth: 24, logoheight: 24),
                     LoginPageContainer(image: 'assets/facebook.png', color: Colors.white, callback: () {
 
-                    }, logowidth: 22, logoheight: 22)
+                    }, logowidth: 24, logoheight: 24)
 
 
                   ],
@@ -109,7 +108,7 @@ class AccountLogin extends StatelessWidget {
               
               
 
-              const SizedBox(height: 70,),
+              const SizedBox(height: 50,),
               ContainerWidgetExtended(
                 text: 'Signin',
                 size: 18,

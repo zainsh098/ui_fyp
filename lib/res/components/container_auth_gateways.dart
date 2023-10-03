@@ -1,8 +1,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+
+import 'package:ui_fyp/res/components/text_widget.dart';
+import 'package:ui_fyp/res/font_styles.dart';
 
 
 class ContainerWidget extends StatelessWidget {
@@ -31,7 +32,7 @@ class ContainerWidget extends StatelessWidget {
           style: ButtonStyle(
               shape:  MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0), // Adjust the radius as needed
+                  borderRadius: BorderRadius.circular(5.0), // Adjust the radius as needed
                   side: BorderSide(color: Colors.blue.shade50), // Border color
                 ),
 
@@ -49,10 +50,7 @@ class ContainerWidget extends StatelessWidget {
         children: [
           Image.asset(image,height: logoheight  ,width:logowidth,),
           const SizedBox(width: 2,),
-          Text(text,style: GoogleFonts.poppins(color: color1,
-            fontWeight: fontWeight,fontSize: size,
-
-          ),),
+          Text(text,style: TextStyle(fontSize: 15,fontFamily: FontStyles.CarosSoftMedium,color: Colors.black),),
 
         ],
       )),
@@ -93,13 +91,13 @@ class _ContainerWidgetExtendedState extends State<ContainerWidgetExtended> {
           style: ButtonStyle(
               shape:  MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0), // Adjust the radius as needed
+                  borderRadius: BorderRadius.circular(50.0), // Adjust the radius as needed
                   side: BorderSide(color: Colors.blue.shade50), // Border color
                 ),
 
               ),
     backgroundColor: MaterialStateProperty.all<Color>(widget.color),
-    minimumSize: MaterialStateProperty.all(Size(Adaptive.w(80), Adaptive.h(10)))),
+    minimumSize: MaterialStateProperty.all(Size(width * 0.80, height*0.075))),
 
 
 
@@ -112,13 +110,11 @@ class _ContainerWidgetExtendedState extends State<ContainerWidgetExtended> {
         children: [
 
 
-          Text(widget.text,style: GoogleFonts.poppins(color: widget.color1,
-            fontWeight: widget.fontWeight,fontSize: widget.size,
+          TextWidget(text: 'Signin With Password', textStyle: TextStyle(fontFamily: FontStyles.CarosSoftBold,color: Colors.white)),
 
-          ),),
 
         ],
-      )),
+      ))
     );
   }
 }
@@ -156,7 +152,7 @@ class LoginPageContainer extends StatelessWidget {
           style: ButtonStyle(
               shape: MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0),
+                  borderRadius: BorderRadius.circular(10.0),
                   // Adjust the radius as needed
                   side: BorderSide(color: Colors.blue.shade50), // Border color
                 ),
@@ -165,7 +161,7 @@ class LoginPageContainer extends StatelessWidget {
               backgroundColor: const MaterialStatePropertyAll<Color>(
                   Colors.white),
               minimumSize: MaterialStatePropertyAll(
-                  Size(width * .22, height * .07))),
+                  Size(width * .20, height * .07))),
 
 
           onPressed: () {
@@ -206,8 +202,8 @@ class HomeScreenContainer extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Container(
-      height: Adaptive.h(10),
-      width: Adaptive.w(80),
+      height: height * 0.06,
+      width: width * 0.15,
       decoration: BoxDecoration(shape: BoxShape.circle,
 
         color: color,

@@ -5,6 +5,8 @@ import 'package:ui_fyp/res/components/container_auth_gateways.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
 import 'package:ui_fyp/screens/Authentications/create_account.dart';
 
+import '../../res/font_styles.dart';
+
 class AuthGateWays extends StatefulWidget {
   const AuthGateWays({super.key});
 
@@ -37,15 +39,16 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 15,
             ),
             TextWidget(
                 text: "Let's you in",
-                fontWeight: FontWeight.bold,
-                size: 30,
-                color: Colors.black),
+                textStyle:TextStyle(
+                  fontFamily: FontStyles.CarosSoftExtraBold,
+                  fontSize: 35,
+                ),),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             ContainerWidget(
               callback: () {},
@@ -87,13 +90,13 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               logowidth: 50,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             TextWidget(
-                text: 'or',
-                fontWeight: FontWeight.w600,
-                size: 15,
-                color: Colors.grey),
+                text: 'or', textStyle: TextStyle(fontFamily: FontStyles.CarosSoftLight),
+
+
+              ),
             const SizedBox(
               height: 20,
             ),
@@ -110,16 +113,16 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               },
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextWidget(
                     text: "Don't have an account?",
-                    fontWeight: FontWeight.w500,
-                    size: 12,
-                    color: Colors.black),
+
+
+                    textStyle: TextStyle(fontFamily: FontStyles.CarosSoftLight),),
                 const SizedBox(
                   width: 5,
                 ),
@@ -131,9 +134,9 @@ class _AuthGateWaysState extends State<AuthGateWays> {
 
 
                       text: "Sign up",
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.blue),
+
+
+                      textStyle: TextStyle(fontFamily: FontStyles.CarosSoftMedium,color: Colors.blue),),
                 ),
               ],
             ),

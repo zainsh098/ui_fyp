@@ -3,6 +3,8 @@ import 'package:ui_fyp/res/components/container_auth_gateways.dart';
 import 'package:ui_fyp/res/components/file_template.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
 
+import '../../res/font_styles.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -11,8 +13,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 60),
@@ -20,18 +25,19 @@ class _HomeScreenState extends State<HomeScreen> {
 mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton(
+              heroTag:'camera' ,
 
               onPressed: () {
                 // Add your action for the first FAB here
               },
-              child: Icon(Icons.camera_alt),
+              child: const Icon(Icons.camera_alt),
             ),
-            SizedBox(width: 16), // Add some spacing between FABs
+            const SizedBox(width: 16), // Add some spacing between FABs
             FloatingActionButton(
               onPressed: () {
                 // Add your action for the second FAB here
               },
-              child: Icon(Icons.browse_gallery_outlined),
+              child: const Icon(Icons.browse_gallery_outlined),
             ),
          // Add some spacing between FABs
 
@@ -45,135 +51,159 @@ mainAxisAlignment: MainAxisAlignment.end,
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
-              height: 20,
+            const SizedBox(
+              height: 15,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 25),
-                  child: Image.asset(
-                    'assets/scan.png',
-                    height: 35,
-                    width: 35,
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 10),
+                      RichText(
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'S',
+                              style: TextStyle(
+                                fontFamily: FontStyles.CarosSoftExtraBold,
+                                fontSize: 25,
+                                color: Colors.blue, // Customize the color
+                              ),
+                            ),
+
+                            TextSpan(
+                              text: 'can',
+                              style: TextStyle(
+                                fontFamily: FontStyles.CarosSoftBold,
+                                fontSize: 20,
+                                color: Colors.black, // Customize the color
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'ey',
+                              style: TextStyle(
+                                fontFamily: FontStyles.CarosSoftBold,
+                                fontSize: 20,
+                                color: Colors.blue, // Customize the color
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      TextWidget(
+                        text: '.Z',
+                        textStyle: const TextStyle(
+                          fontFamily: FontStyles.CarosSoftBold,
+                          fontSize: 13,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(
-                  width: 15,
-                ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 100),
-                  child: TextWidget(
-                      text: 'Scaney.Z',
-                      fontWeight: FontWeight.w600,
-                      size: 22,
-                      color: Colors.black),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 50),
+                  padding: const EdgeInsets.only(right: 15),
                   child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.search,
-                        size: 35,
-                      )),
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.search,
+                      size: 35,
+                    ),
+                  ),
                 ),
               ],
             ),
-            SizedBox(
-              height: 20,
+
+
+            const SizedBox(
+              height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 3),
+              padding: const EdgeInsets.symmetric(horizontal:10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   HomeScreenContainer(
                       image: 'assets/scan1.png',
                       color: Colors.pink.shade50,
-                      logoheight: 30,
-                      logowidth: 30),
+                      logoheight: height * 0.07,
+                      logowidth: width * 0.07),
                   HomeScreenContainer(
                       image: 'assets/scan1.png',
                       color: Colors.brown.shade50,
-                      logoheight: 30,
-                      logowidth: 30),
+                      logoheight: height * 0.07,
+                      logowidth: width * 0.07),
                   HomeScreenContainer(
                       image: 'assets/writing.png',
                       color: Colors.pink.shade50,
-                      logoheight: 35,
-                      logowidth: 35),
+                      logoheight: height * 0.07,
+                      logowidth: width * 0.07),
                   HomeScreenContainer(
                       image: 'assets/scissors.png',
                       color: Colors.blue.shade50,
-                      logoheight: 30,
-                      logowidth: 30)
+                      logoheight: height * 0.07,
+                      logowidth: width * 0.07)
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   TextWidget(
                       text: 'Scan code',
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.black),
+                      textStyle: const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 11)),
                   TextWidget(
                       text: 'Watermark',
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.black),
+                      textStyle:  const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 11)),
                   TextWidget(
                       text: 'eSign PDF',
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.black),
+                      textStyle:  const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 11)),
                   TextWidget(
                       text: 'Split PDF',
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.black)
+                      textStyle:  const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 11)),
                 ],
               ),
             ),
-            SizedBox(
-              height: 20,
+            const SizedBox(
+              height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   HomeScreenContainer(
                       image: 'assets/merge.png',
                       color: Colors.pink.shade50,
-                      logoheight: 30,
-                      logowidth: 30),
+                      logoheight: height * 0.07,
+                      logowidth: width * 0.07),
                   HomeScreenContainer(
                       image: 'assets/data-encryption.png',
                       color: Colors.brown.shade50,
-                      logoheight: 30,
-                      logowidth: 30),
+                      logoheight: height * 0.07,
+                      logowidth: width * 0.07),
                   HomeScreenContainer(
                       image: 'assets/minimize.png',
                       color: Colors.pink.shade50,
-                      logoheight: 28,
-                      logowidth: 28),
+                      logoheight: height * 0.06,
+                      logowidth: width * 0.06),
                   HomeScreenContainer(
                       image: 'assets/select-all.png',
                       color: Colors.blue.shade50,
-                      logoheight: 40,
-                      logowidth: 40)
+                      logoheight: height * 0.09,
+                      logowidth: width * 0.09)
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -183,62 +213,52 @@ mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextWidget(
                       text: 'Merge PDF',
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.black),
-                  SizedBox(
+                      textStyle:  const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 11)),
+                  const SizedBox(
                     width: 5,
                   ),
                   TextWidget(
                       text: 'Protect PDF',
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.black),
+                      textStyle:   const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 11)),
                   TextWidget(
-                      text: 'Compresss PDF',
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.black),
-                  SizedBox(
+                      textStyle:   const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 11), text: 'Compress PDF',),
+                  const SizedBox(
                     width: 1,
                   ),
                   TextWidget(
-                      text: 'All tools',
-                      fontWeight: FontWeight.w500,
-                      size: 12,
-                      color: Colors.black),
+                      textStyle: const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 11), text: 'All Tools',),
 
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Divider(
               color: Colors.grey.shade200,
               endIndent: 10,
               indent: 15,
 
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 5,),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.only(left: 30,right: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                 children: [
 
-                  TextWidget(text: 'Recent Files', fontWeight: FontWeight.w600, size: 22, color: Colors.black),
-                  Icon(Icons.arrow_forward,color: Colors.blue,size: 25,)
+                  TextWidget(text: 'Recent Files', textStyle: const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 14,color: Colors.black)),
+                  const Icon(Icons.arrow_forward,color: Colors.blue,size: 25,)
                 ],
 
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 15,),
               Expanded(
                 child: ListView.builder(
                   itemCount: 3,
                   itemBuilder: (context, index) {
-                  return   Column(
+                  return   const Column(
                     children: [
                       FileTemplate(),
                       SizedBox(height: 10,),
