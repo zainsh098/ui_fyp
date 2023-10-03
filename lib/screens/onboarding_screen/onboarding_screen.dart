@@ -1,262 +1,224 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:ui_fyp/res/font_styles.dart';
-import 'package:ui_fyp/screens/Authentications/auth_gateways.dart';
-import 'package:ui_fyp/screens/splash/splash_screen.dart';
+import 'package:ui_fyp/screens/Home%20Screen/home_screen.dart';
 
-class OnboradingScreen extends StatelessWidget {
-  const OnboradingScreen({super.key});
+
+
+import '../../res/font_styles.dart';
+import '../../utils/size_config.dart';
+import 'on_boarding_contents.dart';
+
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-    return OnBoardingSlider(
-      finishButtonText: 'Register',
-      addButton: true,
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
+}
 
-      onFinish: () {
-        Navigator.push(
-          context,
-          CupertinoPageRoute(
-            builder: (context) => const AuthGateWays(),
-          ),
-        );
-      },
-      finishButtonStyle: const FinishButtonStyle(
-        backgroundColor: Colors.blue,
-      ),
+class _OnboardingScreenState extends State<OnboardingScreen> {
+  late PageController _controller;
 
-      skipTextButton: const Padding(
-        padding: EdgeInsets.only(top: 10),
-        child: Text(
-          'Skip',
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
-          ),
+  @override
+  void initState() {
+    _controller = PageController();
+    super.initState();
+  }
+
+  int _currentPage = 0;
+  List colors = const [
+    Color(0xffDAD3C8),
+    Color(0xdaffe5de),
+    Color(0xffDCF6E6),
+  ];
+  List containerColors = const [
+    Color(0xffead60d),
+    Color(0xffc511c0),
+    Color(0xff052be5),
+  ];
+
+  AnimatedContainer _buildDots({
+    int? index,
+  }) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 200),
+      decoration:  BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(50),
         ),
+        color: containerColors [index!],
       ),
+      margin: const EdgeInsets.only(right: 5),
+      height: 10,
+curve: Curves.easeInBack,
+width: _currentPage == index ? 20 : 10,
+);
+}
 
-      trailing: const Padding(
-        padding: EdgeInsets.only(top: 10),
-        child: Text(
-          'Login',
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.blue,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
-      trailingFunction: () {
-        Navigator.push(
-          context,
-          CupertinoPageRoute(
-            builder: (context) => const SplashScreen(),
-          ),
-        );
-      },
+@override
+Widget build(BuildContext context) {
+  SizeConfig().init(context);
+  double width = SizeConfig.screenW!;
+  double height = SizeConfig.screenH!;
 
+  return Scaffold(
+    backgroundColor: colors[_currentPage],
+    body: SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            flex: 4,
+            child: PageView.builder(
+              physics: const BouncingScrollPhysics(),
+              controller: _controller,
+              onPageChanged: (value) => setState(() => _currentPage = value),
+              itemCount: contents.length,
+              itemBuilder: (context, i) {
+                return Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 30,),
+                      Image.asset(
+                        contents[i].image,
+                        height: SizeConfig.blockV! * 30,
+                      ),
+                      SizedBox(height: 60,),
+                      Text(
+                        contents[i].title,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: FontStyles.CarosSoftExtraBold,
+                          fontWeight: FontWeight.w600,
+                          fontSize: (width <= 550) ? 30 : 35,
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      Text(
+                        contents[i].desc,
+                        style: TextStyle(
+                          fontFamily: FontStyles.CarosSoftLight,
 
-      controllerColor: Colors.orange,
-      totalPage: 4,
-      headerBackgroundColor: Colors.white,
-      pageBackgroundColor: Colors.white,
+                          fontSize: 18
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
 
-      background: [
-
-        Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: SizedBox(
-            height: Adaptive.h(31),
-            width: Adaptive.w(90),
-            child: Lottie.asset(
-              'assets/file.json',
-              reverse: true,
-              repeat: true,
-              filterQuality: FilterQuality.high,
+                    ],
+                  ),
+                );
+              },
             ),
           ),
-        ),
-        SizedBox(
-          height: height * 0.32,
-          width: width * 0.92,
-          child: Lottie.asset(
-            'assets/file.json',
-            reverse: true,
-            repeat: true,
-            filterQuality: FilterQuality.high,
-          ),
-        ),
-        SizedBox(
-          height: height * 0.32,
-          width: width * 0.92,
-          child: Lottie.asset(
-            'assets/file.json',
-            reverse: true,
-            repeat: true,
-            filterQuality: FilterQuality.high,
-          ),
-        ),
-        SizedBox(
-          height: height * 0.32,
-          width: width * 0.92,
-          child: Lottie.asset(
-            'assets/file.json',
-            reverse: true,
-            repeat: true,
-            filterQuality: FilterQuality.high,
-          ),
-        ),
 
-      ],
-      speed: 4,
-      pageBodies: [
-
-        Container(
-          alignment: Alignment.center,
-          width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-             SizedBox(
-                height: Adaptive.h(30),
-              ),
-              Text(
-                'Scan All your documents \n quick and easily',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20,fontFamily: FontStyles.CarosSoftExtraBold,)
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-               Text(
-                'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-
-
-                  fontSize: 12,
+          Expanded(
+            flex: 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    contents.length,
+                        (int index) => _buildDots(
+                      index: index,
+                    ),
+                  ),
                 ),
-              ),
-            ],
+                _currentPage + 1 == contents.length
+                    ? Padding(
+                  padding: const EdgeInsets.all(30),
+                  child: ElevatedButton(
+                    onPressed: () {
+
+                      Navigator.push(context,  MaterialPageRoute(builder: (context) =>const HomeScreen(),));
+
+                    },
+
+                    child: const Text("START",style: TextStyle(
+                      fontFamily: FontStyles.CarosSoftExtraBold,
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      padding: (width <= 550)
+                          ? const EdgeInsets.symmetric(
+                          horizontal: 100, vertical: 20)
+                          : EdgeInsets.symmetric(
+                          horizontal: width * 0.2, vertical: 25),
+                      textStyle:
+                      TextStyle(fontSize: (width <= 550) ? 13 : 17),
+                    ),
+                  ),
+                )
+                    : Padding(
+                  padding: const EdgeInsets.all(30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          _controller.jumpToPage(2);
+                        },
+                        child:  Text(
+                          "SKIP",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: FontStyles.CarosSoftBold,
+                            fontSize: (width <= 550) ? 13 : 17,
+                          ),
+                        ),
+                        style: TextButton.styleFrom(
+                          elevation: 0,
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontFamily: FontStyles.CarosSoftBold,
+                            fontSize: (width <= 550) ? 13 : 17,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          _controller.nextPage(
+                            duration: const Duration(milliseconds: 350),
+                            curve: Curves.linear,
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          elevation: 0,
+                          padding: (width <= 550)
+                              ? const EdgeInsets.symmetric(horizontal: 20, vertical: 15) // Adjust the padding for a smaller button
+                              : const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+                          textStyle: TextStyle(
+                            fontSize: (width <= 550) ? 13 : 17,
+                          ),
+                        ),
+                        child: Text(
+                          "NEXT",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: FontStyles.CarosSoftBold,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: Adaptive.h(30),
-              ),
-              Text(
-                'Object Character Recognition OCR',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                "Instant conversion to text with OCR \n don't worry about typing" ,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-
-
-                  fontSize: 12,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-
-               SizedBox(
-                height: Adaptive.h(30),
-              ),
-              Text(
-                'Keep Your docs ,IDs in hand',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                'All scans are stored locally \non your device',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-
-                fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              const SizedBox(
-                height: 480,
-              ),
-              Text(
-                'Share  Instantly',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-               Text(
-                'Scan edit crop. Do whatever you want and \nthen share the files with just click.',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-
-                  fontSize: 12,
-                ),
-              ),
-            ],
-          ),
-        ),
-
-      ],
-    );
-  }
+        ],
+      ),
+    ),
+  );
+}
 }
