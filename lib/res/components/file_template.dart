@@ -4,7 +4,7 @@ import 'package:ui_fyp/res/components/text_widget.dart';
 
 import '../font_styles.dart';
 class FileTemplate extends StatelessWidget {
-  const FileTemplate({Key? key});
+  const FileTemplate({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class FileTemplate extends StatelessWidget {
             color: Colors.blue.shade200.withOpacity(0.4), // Adjust the opacity for the glass effect
             spreadRadius: 1,
             blurRadius: 3, // Adjust the blur radius for the glass effect
-            offset: Offset(5, 5),
+            offset: const Offset(5, 5),
           ),
         ],
       ),
@@ -97,13 +97,13 @@ class FileTemplate2 extends StatelessWidget {
 
             tileColor: Colors.white,
      leading: Image.asset('assets/pdf3.png',height: 40,width: 40,),
-            title: TextWidget(text: 'MyResume.pdf',textStyle: TextStyle(color: Colors.black,fontFamily: FontStyles.CarosSoft,fontSize: 15),),
+            title: TextWidget(text: 'MyResume.pdf',textStyle: const TextStyle(color: Colors.black,fontFamily: FontStyles.CarosSoft,fontSize: 15),),
             trailing: Icon(Icons.more_horiz_outlined,size: 35,color: Colors.grey.shade600,),
             subtitle: Row(
               children: [
-                TextWidget(text: '12-9-2023', textStyle: TextStyle(color: Colors.grey,fontFamily: FontStyles.CarosSoftLight,fontSize: 11) ),
-                SizedBox(width: 5,),
-                TextWidget(text: '1:03 PM', textStyle: TextStyle(color: Colors.grey,fontFamily: FontStyles.CarosSoft,fontSize: 11) ),
+                TextWidget(text: '12-9-2023', textStyle: const TextStyle(color: Colors.grey,fontFamily: FontStyles.CarosSoftLight,fontSize: 11) ),
+                const SizedBox(width: 5,),
+                TextWidget(text: '1:03 PM', textStyle: const TextStyle(color: Colors.grey,fontFamily: FontStyles.CarosSoft,fontSize: 11) ),
 
 
 
