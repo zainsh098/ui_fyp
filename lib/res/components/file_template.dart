@@ -13,11 +13,11 @@ class FileTemplate extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Container(
-      height: height * 0.13,
+      height: height * 0.14,
       width: width * 0.90,
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(10),
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(5),
       ),
       child: Row(
         children: [

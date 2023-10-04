@@ -4,6 +4,7 @@ import 'package:ui_fyp/res/components/container_auth_gateways.dart';
 import 'package:ui_fyp/res/components/file_template.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
 
+import '../../res/components/bottom_navigation_bar.dart';
 import '../../res/font_styles.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,12 +15,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.blueGrey.shade50,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 60),
         child: Row(
@@ -50,7 +52,7 @@ mainAxisAlignment: MainAxisAlignment.end,
 
 
 
-      
+
       body: SafeArea(
         child: Column(
           children: [
@@ -268,7 +270,7 @@ mainAxisAlignment: MainAxisAlignment.end,
 
                     ],
                   );
-                  
+
                 },),
               ),
 
@@ -276,6 +278,8 @@ mainAxisAlignment: MainAxisAlignment.end,
           ],
         ),
       ),
+    bottomNavigationBar: BottomNavgationBar()
+
     );
   }
 }
