@@ -21,33 +21,33 @@ class _HomeScreenState extends State<HomeScreen> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade50,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 60),
-        child: Row(
-mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              heroTag:'camera' ,
-
-              onPressed: () {
-                // Add your action for the first FAB here
-              },
-              child: const Icon(Icons.camera_alt),
-            ),
-            const SizedBox(width: 16), // Add some spacing between FABs
-            FloatingActionButton(
-              onPressed: () {
-                // Add your action for the second FAB here
-              },
-              child: const Icon(Icons.browse_gallery_outlined),
-            ),
-         // Add some spacing between FABs
-
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      backgroundColor:  Colors.grey.shade100,
+//       floatingActionButton: Padding(
+//         padding: const EdgeInsets.only(bottom: 60),
+//         child: Row(
+// mainAxisAlignment: MainAxisAlignment.end,
+//           children: [
+//             FloatingActionButton(
+//               heroTag:'camera' ,
+//
+//               onPressed: () {
+//                 // Add your action for the first FAB here
+//               },
+//               child: const Icon(Icons.camera_alt),
+//             ),
+//             const SizedBox(width: 16), // Add some spacing between FABs
+//             FloatingActionButton(
+//               onPressed: () {
+//                 // Add your action for the second FAB here
+//               },
+//               child: const Icon(Icons.browse_gallery_outlined),
+//             ),
+//          // Add some spacing between FABs
+//
+//           ],
+//         ),
+//       ),
+//       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
 
 
 
@@ -238,7 +238,7 @@ mainAxisAlignment: MainAxisAlignment.end,
             ),
             const SizedBox(height: 10,),
             Divider(
-              color: Colors.grey.shade200,
+              color: Colors.blue.shade100,
               endIndent: 10,
               indent: 15,
 
@@ -252,21 +252,22 @@ mainAxisAlignment: MainAxisAlignment.end,
 
                 children: [
 
-                  TextWidget(text: 'Recent Files', textStyle: const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 14,color: Colors.black)),
+                  TextWidget(text: 'Recent Files', textStyle: const TextStyle(fontFamily: FontStyles.CarosSoftMedium,fontSize: 15,color: Colors.black)),
                   const Icon(Icons.arrow_forward,color: Colors.blue,size: 25,)
                 ],
 
               ),
             ),
-            const SizedBox(height: 15,),
+            const SizedBox(height: 10,),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 3,
+                  itemCount: 4,
                   itemBuilder: (context, index) {
                   return   const Column(
                     children: [
-                      FileTemplate(),
-                      SizedBox(height: 10,),
+                      FileTemplate2(),
+                      SizedBox(height: 5,),
+
 
                     ],
                   );
