@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'package:ui_fyp/provider/splash_provider.dart';
 import 'package:ui_fyp/screens/Home%20Screen/home_screen.dart';
+import 'package:ui_fyp/screens/splash/splash_screen.dart';
 
 
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
-        home: const HomeScreen(),
+        home: const SplashScreen(),
       ),);
 
     }
