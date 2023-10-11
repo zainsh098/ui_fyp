@@ -55,7 +55,7 @@ class _BottomNavgationBarState extends State<BottomNavgationBar> {
                   ),
                   IconButton(
                       icon: Icon(
-                        Icons.restaurant_menu,
+                        Icons.folder,
                         size: 25,
                         color: currentIndex == 1 ? Colors.blue : Colors.grey.shade400,
                       ),

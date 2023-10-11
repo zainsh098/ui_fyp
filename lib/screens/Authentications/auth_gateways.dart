@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:ui_fyp/res/components/container_auth_gateways.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
+import 'package:ui_fyp/screens/Authentications/Auth_Gateways_services/google_auth_service.dart';
 import 'package:ui_fyp/screens/Authentications/create_account.dart';
 
 import '../../res/font_styles.dart';
@@ -15,6 +16,7 @@ class AuthGateWays extends StatefulWidget {
 }
 
 class _AuthGateWaysState extends State<AuthGateWays> {
+  Google_AuthService authService=Google_AuthService();
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -51,7 +53,12 @@ class _AuthGateWaysState extends State<AuthGateWays> {
               height: 20,
             ),
             ContainerWidget(
-              callback: () {},
+              callback: () {
+
+                authService.handleSignin();
+
+
+              },
               text: 'Continue with Google',
               size: 15,
               color: Colors.white54,

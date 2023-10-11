@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "766695022449",
+    "project_id": "clearflow-fyp",
+    "storage_bucket": "clearflow-fyp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766695022449:android:c7b9a4a9ba1a49d689e0d0",
+        "android_client_info": {
+          "package_name": "com.example.ui_fyp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChGcw5mDsR0Q-9JZ37XM1T-U_Uhq4wLlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
