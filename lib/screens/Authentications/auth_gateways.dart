@@ -58,6 +58,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
             ContainerWidget(
               callback: () {
                 authService.handleSignin(context);
+
               },
               text: 'Continue with Google',
               size: 15,

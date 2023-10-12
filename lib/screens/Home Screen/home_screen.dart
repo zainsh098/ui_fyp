@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(actions: [IconButton(onPressed: () {
-        google_authService.handleSignOut();
+        google_authService.handleSignOut(context);
 
       }, icon: Icon(Icons.logout,color: Colors.black,  ))],
         backgroundColor: Colors.grey.shade100,
