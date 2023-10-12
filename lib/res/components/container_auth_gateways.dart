@@ -41,10 +41,7 @@ class ContainerWidget extends StatelessWidget {
               minimumSize:MaterialStatePropertyAll(Size(width*.80,height*.07 ))),
 
 
-          onPressed: () {
-            callback;
-
-          }, child: Row(
+          onPressed: callback, child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
 
         children: [

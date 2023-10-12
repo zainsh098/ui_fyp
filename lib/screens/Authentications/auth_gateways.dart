@@ -16,6 +16,8 @@ class AuthGateWays extends StatefulWidget {
 }
 
 class _AuthGateWaysState extends State<AuthGateWays> {
+
+
   Google_AuthService authService=Google_AuthService();
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+
       body: SafeArea(
         child: Column(
           children: [
@@ -54,10 +57,7 @@ class _AuthGateWaysState extends State<AuthGateWays> {
             ),
             ContainerWidget(
               callback: () {
-
-                authService.handleSignin();
-
-
+                authService.handleSignin(context);
               },
               text: 'Continue with Google',
               size: 15,

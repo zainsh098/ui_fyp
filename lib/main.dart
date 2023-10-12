@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ui_fyp/provider/splash_provider.dart';
+import 'package:ui_fyp/screens/Authentications/auth_gateways.dart';
 
 import 'package:ui_fyp/screens/splash/splash_screen.dart';
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
-        home: const SplashScreen(),
+        home: const AuthGateWays(),
       ),);
 
     }

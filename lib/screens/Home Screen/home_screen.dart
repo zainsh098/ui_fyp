@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ui_fyp/res/components/container_auth_gateways.dart';
 import 'package:ui_fyp/res/components/file_template.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
+import 'package:ui_fyp/screens/Authentications/Auth_Gateways_services/google_auth_service.dart';
 
 import '../../res/components/bottom_navigation_bar.dart';
 import '../../res/font_styles.dart';
@@ -20,9 +21,48 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-
+    Google_AuthService google_authService=Google_AuthService();
 
     return Scaffold(
+      appBar: AppBar(actions: [IconButton(onPressed: () {
+        google_authService.handleSignOut();
+
+      }, icon: Icon(Icons.logout,color: Colors.black,  ))],
+        backgroundColor: Colors.grey.shade100,
+        elevation: 0,
+        title: Row(
+          children: [
+            TextWidget(
+                text: 'S',
+                textStyle: const TextStyle(
+                  fontFamily: FontStyles.CarosSoftExtraBold,
+                  fontSize: 25,
+                  color: Colors.blue, // Customize the color
+                )),
+            TextWidget(
+                text: 'can',
+                textStyle: const TextStyle(
+                  fontFamily: FontStyles.CarosSoftBold,
+                  fontSize: 20,
+                  color: Colors.black, // Customize the color
+                )),
+            TextWidget(
+                text: 'ey',
+                textStyle: const TextStyle(
+                  fontFamily: FontStyles.CarosSoftBold,
+                  fontSize: 20,
+                  color: Colors.blue, // Customize the color
+                )),
+            TextWidget(
+                text: '.Z',
+                textStyle: const TextStyle(
+                  fontFamily: FontStyles.CarosSoftBold,
+                  fontSize: 13,
+                  color: Colors.grey,
+                )),
+          ],
+        ),
+      ),
       backgroundColor:  Colors.grey.shade100,
 //       floatingActionButton: Padding(
 //         padding: const EdgeInsets.only(bottom: 60),
@@ -57,6 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       body: SafeArea(
         child: Column(
+
           children: [
             const SizedBox(
               height: 15,
