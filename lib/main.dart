@@ -1,16 +1,9 @@
-
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ui_fyp/provider/splash_provider.dart';
-import 'package:ui_fyp/screens/Authentications/auth_gateways.dart';
-
-import 'package:ui_fyp/screens/splash/splash_screen.dart';
-
-
-
+import 'package:ui_fyp/screens/Folders/folders_screen.dart';
 
 
 Future<void> main() async {
@@ -25,29 +18,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_) => SplashProvider())
-
-    ],
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => SplashProvider())],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Fyp ',
         theme: ThemeData(
-
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
-        home: const AuthGateWays(),
-      ),);
-
-    }
+        home: FoldersMainScreen(),
+      ),
+    );
   }
-
-
-
-
-
-
-
-
-
+}
