@@ -38,31 +38,6 @@ class _FoldersMainScreenState extends State<FoldersMainScreen> {
         .createFolder(folderNameController.text.toString());
   }
 
-  Future<void> _showCreateFolderDialog(BuildContext context) async {
-    return showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text("Create Folder"),
-          content: TextField(
-            controller: folderNameController,
-            decoration: const InputDecoration(
-              labelText: "Folder Name",
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text("Create Folder"),
-              onPressed: () {
-                createFolder(folderNameController.text.toString());
-                Navigator.of(context).pop(folderNameController.text);
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
