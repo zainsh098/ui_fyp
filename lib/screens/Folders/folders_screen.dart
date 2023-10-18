@@ -1,11 +1,80 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
+import 'package:ui_fyp/provider/folder_provider.dart';
 import 'package:ui_fyp/res/components/text_widget.dart';
 import 'package:ui_fyp/res/font_styles.dart';
 
 import '../../res/components/bottom_navigation_bar.dart';
 
-class FoldersMainScreen extends StatelessWidget {
-  const FoldersMainScreen({super.key});
+
+
+class FoldersMainScreen extends StatefulWidget {
+  final String? folderPath;
+  const FoldersMainScreen({super.key,required this.folderPath});
+
+  @override
+  State<FoldersMainScreen> createState() => _FoldersMainScreenState();
+}
+
+class _FoldersMainScreenState extends State<FoldersMainScreen> {
+
+  TextEditingController folderNameController=TextEditingController();
+
+
+  Future <void > requestStoragePremission() async{
+
+    var status=await Permission.storage.status;
+    if(!status.isGranted)
+    {
+
+      await Permission.storage.request();
+    }
+
+
+  }
+  @override
+  void initState() {
+    super.initState();
+    requestStoragePremission();
+
+
+  }
+
+
+
+  Future<void> createFolder(String folderName) async {
+    Provider.of<FolderProvider>(context, listen: false).createFolder(folderNameController.text.toString());
+  }
+  Future<void> _showCreateFolderDialog(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Create Folder"),
+          content: TextField(
+            controller: folderNameController,
+            decoration: InputDecoration(
+              labelText: "Folder Name",
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text("Create Folder"),
+              onPressed: () {
+                createFolder(folderNameController.text.toString());
+                Navigator.of(context).pop(folderNameController.text);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -113,22 +182,59 @@ class FoldersMainScreen extends StatelessWidget {
                         size: 25,
                       ),
                     ),
-                    IconButton(
-                      onPressed: () {
-                        // Add your onPressed logic here
-                      },
-                      icon: Icon(
-                        Icons.create_new_folder_outlined,
-                        size: 25,
-                      ),
-                    ),
+
+                    Consumer<FolderProvider>(builder: (context,value,child){
+                      return
+                        IconButton(
+                          onPressed: () {
+                         _showCreateFolderDialog(context);
+
+                            // Add your onPressed logic here
+                          },
+                          icon: Icon(
+                            Icons.create_new_folder_outlined,
+                            size: 25,
+                          ),
+                        );
+
+                    }),
+
                     SizedBox(
-                      width: 10
+                        width: 10
                     ),
                   ],
                 ),
               ],
             ),
+            SizedBox(height: 15,),
+
+
+            Consumer<FolderProvider>(builder: (context, value, child) {
+              return  Expanded(
+                child: ListView.builder(
+                  itemCount: value.contents.length,
+                  itemBuilder: (context, index) {
+                    final entity = value.contents[index];
+                    return ListTile(
+                      leading: entity is Directory
+                          ? Icon(Icons.folder)
+                          : Icon(Icons.insert_drive_file),
+                      title: Text(entity.path.split('/').last),
+                      onTap: () {
+                        if (entity is Directory) {
+                          value.loadFolderContents(entity.path);
+
+                      // Add this line
+                        }
+                      },
+                    );
+                  },
+                ),
+              );
+
+            },)
+
+
 
           ],
         ),
@@ -136,3 +242,4 @@ class FoldersMainScreen extends StatelessWidget {
     );
   }
 }
+
