@@ -9,60 +9,50 @@ import 'package:ui_fyp/res/font_styles.dart';
 
 import '../../res/components/bottom_navigation_bar.dart';
 
-
-
 class FoldersMainScreen extends StatefulWidget {
-  final String? folderPath;
-  const FoldersMainScreen({super.key,required this.folderPath});
+
+  const FoldersMainScreen({super.key,});
 
   @override
   State<FoldersMainScreen> createState() => _FoldersMainScreenState();
 }
 
 class _FoldersMainScreenState extends State<FoldersMainScreen> {
+  TextEditingController folderNameController = TextEditingController();
 
-  TextEditingController folderNameController=TextEditingController();
-
-
-  Future <void > requestStoragePremission() async{
-
-    var status=await Permission.storage.status;
-    if(!status.isGranted)
-    {
-
+  Future<void> requestStoragePremission() async {
+    var status = await Permission.storage.status;
+    if (!status.isGranted) {
       await Permission.storage.request();
     }
-
-
   }
+
   @override
   void initState() {
     super.initState();
     requestStoragePremission();
-
-
   }
-
-
 
   Future<void> createFolder(String folderName) async {
-    Provider.of<FolderProvider>(context, listen: false).createFolder(folderNameController.text.toString());
+    Provider.of<FolderProvider>(context, listen: false)
+        .createFolder(folderNameController.text.toString());
   }
+
   Future<void> _showCreateFolderDialog(BuildContext context) async {
     return showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Create Folder"),
+          title: const Text("Create Folder"),
           content: TextField(
             controller: folderNameController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Folder Name",
             ),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text("Create Folder"),
+              child: const Text("Create Folder"),
               onPressed: () {
                 createFolder(folderNameController.text.toString());
                 Navigator.of(context).pop(folderNameController.text);
@@ -74,18 +64,16 @@ class _FoldersMainScreenState extends State<FoldersMainScreen> {
     );
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
-      bottomNavigationBar: BottomNavgationBar(),
+      bottomNavigationBar: const BottomNavgationBar(),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
@@ -94,7 +82,7 @@ class _FoldersMainScreenState extends State<FoldersMainScreen> {
               children: [
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Image.asset(
@@ -102,12 +90,12 @@ class _FoldersMainScreenState extends State<FoldersMainScreen> {
                       height: 20,
                       width: 20,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     TextWidget(
                       text: 'Files',
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                         fontFamily: FontStyles.CarosSoftBold,
@@ -121,7 +109,7 @@ class _FoldersMainScreenState extends State<FoldersMainScreen> {
                       onPressed: () {
                         // Add your onPressed logic here
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.search,
                         size: 25,
                       ),
@@ -130,41 +118,37 @@ class _FoldersMainScreenState extends State<FoldersMainScreen> {
                       onPressed: () {
                         // Add your onPressed logic here
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.more_rounded,
                         size: 25,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                   ],
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               endIndent: 15,
               indent: 10,
-
             ),
-
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-
                     Padding(
                       padding: const EdgeInsets.only(left: 4),
                       child: TextWidget(
                         text: 'Total: 128 Files',
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                           fontSize: 16,
-
                           fontFamily: FontStyles.CarosSoftBold,
                         ),
                       ),
@@ -177,69 +161,60 @@ class _FoldersMainScreenState extends State<FoldersMainScreen> {
                       onPressed: () {
                         // Add your onPressed logic here
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.add_road_rounded,
                         size: 25,
                       ),
                     ),
+                    Consumer<FolderProvider>(builder: (context, value, child) {
+                      return IconButton(
+                        onPressed: () {
+                          _showCreateFolderDialog(context);
 
-                    Consumer<FolderProvider>(builder: (context,value,child){
-                      return
-                        IconButton(
-                          onPressed: () {
-                         _showCreateFolderDialog(context);
-
-                            // Add your onPressed logic here
-                          },
-                          icon: Icon(
-                            Icons.create_new_folder_outlined,
-                            size: 25,
-                          ),
-                        );
-
+                          // Add your onPressed logic here
+                        },
+                        icon: const Icon(
+                          Icons.create_new_folder_outlined,
+                          size: 25,
+                        ),
+                      );
                     }),
-
-                    SizedBox(
-                        width: 10
-                    ),
+                    const SizedBox(width: 10),
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
+            Consumer<FolderProvider>(
+              builder: (context, value, child) {
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: value.contents.length,
+                    itemBuilder: (context, index) {
+                      final entity = value.contents[index];
+                      return ListTile(
+                        leading: entity is Directory
+                            ? const Icon(Icons.folder)
+                            : const Icon(Icons.insert_drive_file),
+                        title: Text(entity.path.split('/').last),
+                        onTap: () {
+                          if (entity is Directory) {
+                            value.loadFolderContents(entity.path);
 
-
-            Consumer<FolderProvider>(builder: (context, value, child) {
-              return  Expanded(
-                child: ListView.builder(
-                  itemCount: value.contents.length,
-                  itemBuilder: (context, index) {
-                    final entity = value.contents[index];
-                    return ListTile(
-                      leading: entity is Directory
-                          ? Icon(Icons.folder)
-                          : Icon(Icons.insert_drive_file),
-                      title: Text(entity.path.split('/').last),
-                      onTap: () {
-                        if (entity is Directory) {
-                          value.loadFolderContents(entity.path);
-
-                      // Add this line
-                        }
-                      },
-                    );
-                  },
-                ),
-              );
-
-            },)
-
-
-
+                            // Add this line
+                          }
+                        },
+                      );
+                    },
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),
     );
   }
 }
-
